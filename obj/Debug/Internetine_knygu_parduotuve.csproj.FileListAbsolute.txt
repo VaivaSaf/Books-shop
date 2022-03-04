@@ -1,0 +1,4 @@
+C:\Users\User\Documents\internetine_knygu_parduotuve\AutoNuoma\obj\Debug\Internetine_knygu_parduotuve.csproj.AssemblyReference.cache
+C:\Users\User\Documents\internetine_knygu_parduotuve\AutoNuoma\obj\Debug\Internetine_knygu_parduotuve.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\internetine_knygu_parduotuve\AutoNuoma\obj\Debug\AutoNuoma.dll
+C:\Users\User\Documents\internetine_knygu_parduotuve\AutoNuoma\obj\Debug\AutoNuoma.pdb

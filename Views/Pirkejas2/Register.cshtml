@@ -1,0 +1,27 @@
+﻿@model AutoNuoma.Models.Naudotojas
+
+@{
+    ViewBag.Title = "Naujas pirkejas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Naujas pirkejas</h2>
+
+
+@using (Html.BeginForm("Register", "Pirkejas", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+        <legend>Pirkejo informacija</legend>
+        
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Atgal į sąrašą »", "Meniu", "Pirkejas", new { @class = "btn btn-default" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

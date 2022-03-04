@@ -1,0 +1,18 @@
+﻿@model AutoNuoma.Models.KrepselioKnyga
+@{
+    ViewBag.Title = "AddTo";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <fieldset>
+        <legend>Krepselio Knyga</legend>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.EditorFor(model => model.fk_KnygaISBN)
+    </fieldset>
+    
+}
+<div>
+    @Html.ActionLink("Atgal »", "IndexPirkejui", "Knyga", new { @class = "btn btn-default" })
+</div>

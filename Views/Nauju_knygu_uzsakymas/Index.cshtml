@@ -1,0 +1,87 @@
+﻿@model IEnumerable<AutoNuoma.Models.Nauju_knygu_uzsakymas>
+
+@{ ViewBag.Title = "Užsakymai"; }
+
+<h2>Naujų prekių užsakymai</h2>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                @* Navigacijos meniu *@
+                <li>@Html.ActionLink("Peržiūrėti prekių užsakymus", "Index", "Nauju_knygu_uzsakymas")</li>
+                <li>@Html.ActionLink("Užregistruoti naują knygų užsakymą", "Create", "Nauju_knygu_uzsakymas")</li>
+                <li>@Html.ActionLink("Peržiūrėti knygų sąrašą", "IndexA", "Knyga")</li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<table class="table table-striped datatable">
+    <thead>
+        <tr style="background-color: lightblue">
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.knygos_isleidimo_metai_nuo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.knygos_isleidimo_metai_iki)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.knygos_zanras)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kalba)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kiekis)
+            </th>
+
+
+            <th style="width: 18%"></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.knygos_isleidimo_metai_nuo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.knygos_isleidimo_metai_iki)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.knygos_zanras)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kalba)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kiekis)
+            </td>
+
+
+            <td>
+                @Html.ActionLink("Redaguoti", "Edit", new { id = item.id }, new { @class = "btn btn-primary action" })
+                @Html.ActionLink("Šalinti", "Delete", new { id = item.id }, new { @class = "btn btn-danger action" })
+            </td>
+        </tr>}
+    </tbody>
+
+</table>

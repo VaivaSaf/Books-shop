@@ -1,0 +1,89 @@
+﻿@model AutoNuoma.Models.Nauju_knygu_uzsakymas
+
+@{ ViewBag.Title = "Nauja knygų užsakymas"; }
+
+<h2>Naujas knygų užsakymas</h2>
+
+
+@using (Html.BeginForm())
+{
+@Html.AntiForgeryToken()
+                <div class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="container">
+                        <div>
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                @* Navigacijos meniu *@
+                                <li>@Html.ActionLink("Peržiūrėti prekių užsakymus", "Index", "Nauju_knygu_uzsakymas")</li>
+                                <li>@Html.ActionLink("Užregistruoti naują knygų užsakymą", "Create", "Nauju_knygu_uzsakymas")</li>
+                                <li>@Html.ActionLink("Peržiūrėti knygų sąrašą", "IndexA", "Knyga")</li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                                <fieldset>
+                                    <div class="form-horizontal">
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.knygos_isleidimo_metai_nuo, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.knygos_isleidimo_metai_nuo, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.knygos_isleidimo_metai_nuo, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.knygos_isleidimo_metai_iki, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.knygos_isleidimo_metai_iki, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.knygos_isleidimo_metai_iki, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.kiekis, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.kiekis, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.kiekis, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.kalba, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.kalba, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.kalba, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.knygos_zanras, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.knygos_zanras, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.knygos_zanras, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <input type="submit" value="Išsaugoti" class="btn btn-success" />
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Atgal į sąrašą »", "Index", "Knyga", new { @class = "btn btn-default" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

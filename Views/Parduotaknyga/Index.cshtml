@@ -1,0 +1,89 @@
+﻿@model IEnumerable<AutoNuoma.Models.ParduotaKnyga>
+
+@{
+    ViewBag.Title = "Gauti užsakymai";
+}
+
+<h2>Gauti užsakymai</h2>
+@Html.ActionLink("Kurti ataskaita", "Create", new { id = "" }, new { @class = "btn btn-success" })
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Knygų pardavimo IS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                @* Navigacijos meniu *@
+                <li>@Html.ActionLink("Peržiūrėti prekių užsakymus", "Index", "Nauju_knygu_uzsakymasPardavejas")</li>
+                <li>@Html.ActionLink("Peržiūrėti knygų sąrašą", "Index", "Knyga")</li>
+                <li>@Html.ActionLink("Peržiūrėti gautų užsakytų knygų sąrašą", "Index", "Parduotaknyga")</li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+<script src="~/Scripts/jquery.datetimepicker.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+
+<table class="table table-striped datatable">
+    <thead>
+        <tr style="background-color: lightgreen">
+            <th>
+                @Html.DisplayNameFor(model => model.pavadinimas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.autorius)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kiekis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isbn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pardavejas)
+            </th>
+
+            <!-- <th style="width: 18%"></th>-->
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pavadinimas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.autorius)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.kiekis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isbn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pardavejas)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+    <div>
+        @Html.ActionLink("Atgal", "Meniu", "Pardavejas", null, new { @class = "btn btn-default" })
+    </div>
+
+</table>

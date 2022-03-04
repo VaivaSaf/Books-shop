@@ -1,0 +1,70 @@
+﻿@model AutoNuoma.Models.Nauju_knygu_uzsakymas
+
+@{ ViewBag.Title = "Delete"; }
+
+<h2>Uzsakymo patvirtinimas</h2>
+
+<h3>Ar tikrai atlikote šį užsakymą?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.knygos_isleidimo_metai_nuo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.knygos_isleidimo_metai_nuo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.knygos_isleidimo_metai_iki)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.knygos_isleidimo_metai_iki)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.kiekis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kiekis)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.kalba)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kalba)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.knygos_zanras)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.knygos_zanras)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+@Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    @if (ViewBag.naudojama != null)
+                    {
+    <h5 style="color:red">@ViewBag.naudojama</h5> }
+                    else
+                    {
+    <input type="submit" value="Šalinti" class="btn btn-danger" />}
+                    @Html.ActionLink("Atgal į sąrašą", "Index", "Nauju_knygu_uzsakymasPardavejas", new { @class = "btn btn-default" })
+                </div>}
+</div>
+

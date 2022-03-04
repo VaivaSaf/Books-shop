@@ -1,0 +1,40 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/jquery.datetimepicker.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                @* Navigacijos meniu *@
+                <li>@Html.ActionLink("Peržiūrėti prekių užsakymus", "Index", "Nauju_knygu_uzsakymas")</li>
+                <li>@Html.ActionLink("Užregistruoti naują knygų užsakymą", "Create", "Nauju_knygu_uzsakymas")</li>
+                <li>@Html.ActionLink("Peržiūrėti knygų sąrašą", "IndexA", "Knyga")</li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
+
